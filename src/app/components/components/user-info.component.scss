@@ -1,0 +1,28 @@
+.card-user {
+  display: flex;
+  background-color: #fafafa;
+  border: 2px solid #f0f0f0;
+  border-radius: 2px;
+  padding: 10px;
+
+  &__photo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+
+    .full-name {
+      font-weight: 500;
+    }
+
+    .address-phone {
+      font-style: italic;
+      font-size: 12px;
+    }
+  }
+}

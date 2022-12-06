@@ -1,0 +1,21 @@
+<div class="general-container">
+  <div class="general-container__login">
+    <img class="logo" src="./assets/logo-endalia.png" alt="logo-endalia" />
+    <h2 class="title">Bienvenido/a</h2>
+    <label>Introduce tus credenciales para acceder</label>
+
+    <form class="login-form" [formGroup]="loginForm">
+      <div class="login-form__inputs">
+        <label>Usuario</label>
+        <input title="email" type="text" placeholder="angular@endalia.com" formControlName="email" />
+      </div>
+      <div class="login-form__inputs">
+        <label>Contraseña</label>
+        <input title="password" type="password" placeholder="********" formControlName="password" />
+      </div>
+    </form>
+    <button type="submit" class="btn btn-primary" (click)="validateLogin()">
+      Acceder
+    </button>
+  </div>
+</div>

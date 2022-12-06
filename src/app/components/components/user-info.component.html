@@ -1,0 +1,9 @@
+<div class="card-user">
+  <img class="card-user__photo" src="{{ user.picture }}" alt="photo-user" />
+  <div class="card-user__info-container">
+      <span class="full-name">{{ user.lastName | uppercase }}, {{ user.name }}</span>
+      {{ user.job }}
+      <span class="address-phone">{{ user.phone }}</span>
+      <span class="address-phone">{{ user.email }}</span>
+    </div>
+</div>
