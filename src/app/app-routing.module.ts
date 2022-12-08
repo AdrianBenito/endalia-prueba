@@ -1,31 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserDirectoryComponent } from './components/user-directory.component';
-import { LoginComponent } from './shared/login/login.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserDirectoryComponent } from './components/user-directory/user-directory.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, pathMatch: 'full' },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'userDirectory',
+    path: 'employees',
     component: UserDirectoryComponent,
+    pathMatch: 'full' /*  canActivate : [AuthGuardService] */,
   },
   {
     path: '**',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

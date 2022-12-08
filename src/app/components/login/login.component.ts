@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfo } from '../models/user-info.model';
 import ListUserJson from '../../mocks/list-users.json';
 import {
   FormBuilder,
@@ -8,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserInfo } from '../models/user-info.model';
 
 @Component({
   selector: 'login',

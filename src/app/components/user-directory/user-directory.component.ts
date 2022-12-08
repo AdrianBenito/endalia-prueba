@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserInfo } from '../shared/models/user-info.model';
-import ListUserJson from '../mocks/list-users.json';
+import ListUserJson from '../../mocks/list-users.json';
+import { UserInfo } from '../models/user-info.model';
 
 @Component({
   selector: 'user-directory',
