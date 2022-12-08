@@ -15,7 +15,6 @@ const routes: Routes = [
   },
   {
     path: 'userDirectory',
-    /* canActivate: [CanActivateViaAuthGuard], */
     component: UserDirectoryComponent,
   },
   {

@@ -2,10 +2,4 @@ import { Injectable } from "@angular/core";
 
 
 @Injectable()
-export class LoginFacade {
-
-    login() {
-
-    }
-
-}
+export class LoginFacade {}
