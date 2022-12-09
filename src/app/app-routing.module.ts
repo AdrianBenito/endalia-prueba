@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { UserDirectoryComponent } from './components/user-directory/user-directory.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -9,7 +10,8 @@ const routes: Routes = [
   {
     path: 'employees',
     component: UserDirectoryComponent,
-    pathMatch: 'full' /*  canActivate : [AuthGuardService] */,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

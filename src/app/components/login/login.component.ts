@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserInfo } from '../models/user-info.model';
+import { AuthenticationService } from 'src/app/service/authentication.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'login',
@@ -19,8 +21,11 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder,
-              private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {
     this.listUser = ListUserJson;
@@ -29,8 +34,11 @@ export class LoginComponent implements OnInit {
 
   buildForm() {
     this.loginForm = this.fb.group({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
+      email: new FormControl('user1@endalia.com', [
+        Validators.required,
+        Validators.email,
+      ]),
+      password: new FormControl('1234', Validators.required),
     });
   }
 
@@ -43,8 +51,17 @@ export class LoginComponent implements OnInit {
           control.markAsDirty();
         }
       });
-    } else {
-      this.router.navigate(['/userDirectory']);
+      return;
     }
+
+    this.authService
+      .login(
+        this.loginForm.get('email')?.value,
+        this.loginForm.get('password')?.value
+      )
+      .pipe(first())
+      .subscribe((data: any) => {
+        this.router.navigate(['employees']);
+      });
   }
 }

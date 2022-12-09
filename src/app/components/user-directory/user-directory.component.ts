@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 import ListUserJson from '../../mocks/list-users.json';
 import { UserInfo } from '../models/user-info.model';
 
@@ -12,7 +12,10 @@ import { UserInfo } from '../models/user-info.model';
 export class UserDirectoryComponent implements OnInit {
   searchForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthenticationService
+  ) {}
 
   listUser!: UserInfo[];
 
@@ -26,8 +29,8 @@ export class UserDirectoryComponent implements OnInit {
       searchInput: new FormControl(''),
     });
   }
-  
+
   logout() {
-    this.router.navigate(['/login']);
+    this.authService.logout();
   }
 }

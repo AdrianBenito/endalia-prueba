@@ -2,8 +2,8 @@
   {
     "name": "Charles",
     "lastName": "Bonner Bruce",
-    "email": "user1@gmail.com",
-    "password": 12345678,
+    "email": "user1@endalia.com",
+    "password": "1234",
     "phone": "+34 (801) 600-3106",
     "picture": "/assets/user1.jpg",
     "job": "Director of Communications"
@@ -11,8 +11,8 @@
   {
     "name": "Holt",
     "lastName": "Tanner Wooten",
-    "email": "user2@gmail.com",
-    "password": 12345678,
+    "email": "user2@endalia.com",
+    "password": "1234",
     "phone": "+34 (816) 419-2276",
     "picture": "/assets/user2.jpg",
     "job": "Director"
@@ -20,8 +20,8 @@
   {
     "name": "Tom",
     "lastName": "Hampton Edwards",
-    "email": "user3@gmail.com",
-    "password": 12345678,
+    "email": "user3@endalia.com",
+    "password": "1234",
     "phone": "+34 (826) 484-3175",
     "picture": "/assets/user3.jpg",
     "job": "Office manager"
@@ -29,8 +29,8 @@
   {
     "name": "Blankenship",
     "lastName": "Abbott Suarez",
-    "email": "user4@gmail.com",
-    "password": 12345678,
+    "email": "user4@endalia.com",
+    "password": "1234",
     "phone": "+34 (843) 573-3924",
     "picture": "/assets/user4.jpg",
     "job": "Coach"
@@ -38,8 +38,8 @@
   {
     "name": "Cora",
     "lastName": "Golden Rutledge",
-    "email": "user5@gmail.com",
-    "password": 12345678,
+    "email": "user5@endalia.com",
+    "password": "1234",
     "phone": "+34 (977) 489-2031",
     "picture": "/assets/user5.jpg",
     "job": "Scrum Master"
@@ -47,8 +47,8 @@
   {
     "name": "Tamika",
     "lastName": "Vinson Quinn",
-    "email": "user6@gmail.com",
-    "password": 12345678,
+    "email": "user6@endalia.com",
+    "password": "1234",
     "phone": "+34 (881) 469-2102",
     "picture": "/assets/user6.jpg",
     "job": "Project Manager"
@@ -56,8 +56,8 @@
   {
     "name": "Tania",
     "lastName": "Navarro Noel",
-    "email": "user7@gmail.com",
-    "password": 12345678,
+    "email": "user7@endalia.com",
+    "password": "1234",
     "phone": "+34 (808) 583-2298",
     "picture": "/assets/user7.jpg",
     "job": "Angular Developer"
@@ -65,8 +65,8 @@
   {
     "name": "Laura",
     "lastName": "Yang Sims",
-    "email": "user8@gmail.com",
-    "password": 12345678,
+    "email": "user8@endalia.com",
+    "password": "1234",
     "phone": "+34 (800) 463-2552",
     "picture": "/assets/user8.jpg",
     "job": "Android Developer"
@@ -74,8 +74,8 @@
   {
     "name": "Anna",
     "lastName": "Cox Higgins",
-    "email": "user9@gmail.com",
-    "password": 12345678,
+    "email": "user9@endalia.com",
+    "password": "1234",
     "phone": "+34 (822) 552-3137",
     "picture": "/assets/user9.jpg",
     "job": "iOS Developer"
@@ -83,8 +83,8 @@
   {
     "name": "Janie",
     "lastName": "Glass Sellers",
-    "email": "user10@gmail.com",
-    "password": 12345678,
+    "email": "user10@endalia.com",
+    "password": "1234",
     "phone": "+34 (897) 455-2684",
     "picture": "/assets/user10.jpg",
     "job": "Sales Manager"
