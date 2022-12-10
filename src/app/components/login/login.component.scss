@@ -9,6 +9,10 @@
   align-items: center;
   justify-content: center;
 
+  &--loading {
+    opacity: 0.5;
+  }
+
   &__login {
     background-color: white;
     border-radius: 5px;
@@ -85,4 +89,8 @@
       color: white;
     }
   }
+}
+
+.mat-progress-spinner {
+  position: absolute;
 }

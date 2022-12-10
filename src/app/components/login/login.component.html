@@ -1,4 +1,4 @@
-<div class="general-container">
+<div class="general-container" [ngClass]="{'general-container--loading': loader}">
   <div class="general-container__login">
     <img class="logo" src="./assets/logo-endalia.png" alt="logo-endalia" />
     <h2 class="title">Bienvenido/a</h2>
@@ -18,4 +18,5 @@
       Acceder
     </button>
   </div>
+  <mat-spinner *ngIf="loader"></mat-spinner>
 </div>

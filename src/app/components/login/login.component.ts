@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
-import { catchError, first, EMPTY } from 'rxjs';
+import { first } from 'rxjs';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -15,12 +15,13 @@ import { catchError, first, EMPTY } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  loader = false;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthenticationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.loader = true;
     this.authService
       .login(
         this.loginForm.get('email')?.value,
@@ -55,7 +57,13 @@ export class LoginComponent implements OnInit {
       )
       .pipe(first())
       .subscribe((data: any) => {
-        data.ok ? this.router.navigate(['employees']) : null;
+        if (data.ok) {
+          return setTimeout(() => {
+            this.loader = false;
+            data.ok ? this.router.navigate(['employees']) : null;
+          }, 2000);
+        }
+        return this.loader = false;
       });
   }
 }

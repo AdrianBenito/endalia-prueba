@@ -35,7 +35,12 @@
 
 .card-user {
     display: grid;
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
+
+    @media (max-width: 520px) {
+        display: flex;
+        flex-direction: column;
+    }
 }

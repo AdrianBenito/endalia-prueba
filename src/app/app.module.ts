@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AlertWarningComponent } from './shared/alert-warning/alert-warning.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserDirectoryComponent } from './components/user-directory/user-directory.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { UserDirectoryComponent } from './components/user-directory/user-directo
     BrowserAnimationsModule,
     AppRoutingModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
     MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
