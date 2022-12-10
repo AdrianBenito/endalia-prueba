@@ -1,27 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 import { AuthenticationService } from 'src/app/service/authentication.service';
-import ListUserJson from '../../mocks/list-users.json';
+import UserListJson from '../../mocks/user-list.json';
 import { UserInfo } from '../models/user-info.model';
+import { UserDirectoryFacade } from './user-directory.facade';
 
 @Component({
   selector: 'user-directory',
   templateUrl: './user-directory.component.html',
   styleUrls: ['./user-directory.component.scss'],
+  providers: [UserDirectoryFacade],
 })
-export class UserDirectoryComponent implements OnInit {
+export class UserDirectoryComponent implements OnInit, OnDestroy {
   searchForm!: FormGroup;
+  userList!: UserInfo[];
+  private destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private userDirectoryFacade: UserDirectoryFacade
   ) {}
 
-  listUser!: UserInfo[];
-
   ngOnInit(): void {
-    this.listUser = ListUserJson;
+    this.userList = this.userDirectoryFacade.sortListByLastName(UserListJson);
     this.buildForm();
+    this.filterByInput();
   }
 
   buildForm() {
@@ -32,5 +37,22 @@ export class UserDirectoryComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  filterByInput() {
+    this.searchForm
+      .get('searchInput')
+      ?.valueChanges.pipe(takeUntil(this.destroy$))
+      .subscribe((value) => {
+        this.userList = this.userDirectoryFacade.filterByInput(
+          value,
+          UserListJson
+        );
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 }

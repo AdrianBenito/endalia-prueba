@@ -1,7 +1,7 @@
 import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import ListUserJson from '../mocks/list-users.json';
+import UserListJson from '../mocks/user-list.json';
 import { AlertWarningComponent } from '../shared/alert-warning/alert-warning.component';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -17,8 +17,8 @@ export class AuthenticationService {
   login(
     email: string,
     password: string
-  ): Observable<HttpResponse<any>>  {
-    const user = ListUserJson.find(
+  ): Observable<HttpResponse<any>> {
+    const user = UserListJson.find(
       (user) => user.email === email && user.password === password
     );
 
@@ -27,8 +27,8 @@ export class AuthenticationService {
         data: {
           message: message,
         },
-      })
-      return of();
+      });
+      return of(new HttpResponse({status: 400}));
     }
 
     const body = {

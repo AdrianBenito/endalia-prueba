@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import ListUserJson from '../../mocks/list-users.json';
 import {
   FormBuilder,
   FormControl,
@@ -7,18 +6,14 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserInfo } from '../models/user-info.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
-import { first } from 'rxjs';
-
+import { catchError, first, EMPTY } from 'rxjs';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  listUser!: UserInfo[];
-
   loginForm!: FormGroup;
 
   constructor(
@@ -28,17 +23,16 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.listUser = ListUserJson;
     this.buildForm();
   }
 
   buildForm() {
     this.loginForm = this.fb.group({
-      email: new FormControl('user1@endalia.com', [
+      email: new FormControl('', [
         Validators.required,
         Validators.email,
       ]),
-      password: new FormControl('1234', Validators.required),
+      password: new FormControl('', Validators.required),
     });
   }
 
@@ -61,7 +55,7 @@ export class LoginComponent implements OnInit {
       )
       .pipe(first())
       .subscribe((data: any) => {
-        this.router.navigate(['employees']);
+        data.ok ? this.router.navigate(['employees']) : null;
       });
   }
 }

@@ -7,6 +7,5 @@ import { UserInfo } from 'src/app/components/models/user-info.model';
   styleUrls: ['./user-info.component.scss'],
 })
 export class UserInfoComponent {
-  
   @Input() user!: UserInfo;
 }

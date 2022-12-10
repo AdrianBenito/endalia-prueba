@@ -1,6 +1,11 @@
 <div class="menu-bar">
   <h2>Endalia HR</h2>
-  <img class="menu-bar__logout-icon" src="/assets/logout.png" alt="logout" (click)="logout()" />
+  <img
+    class="menu-bar__logout-icon"
+    src="/assets/logout.png"
+    alt="logout"
+    (click)="logout()"
+  />
 </div>
 
 <div class="search-container">
@@ -13,11 +18,10 @@
       formControlName="searchInput"
     />
   </form>
-
 </div>
 
 <div class="card-user">
-    <ng-container *ngFor="let user of listUser">
-        <user-info [user]="user"></user-info>
-    </ng-container>
+  <ng-container *ngFor="let user of userList">
+    <user-info [user]="user"></user-info>
+  </ng-container>
 </div>
