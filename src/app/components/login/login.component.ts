@@ -52,8 +52,8 @@ export class LoginComponent implements OnInit {
     this.loader = true;
     this.authService
       .login(
-        this.loginForm.get('email')?.value,
-        this.loginForm.get('password')?.value
+        this.loginForm.get('email')?.value.toLocaleLowerCase(),
+        this.loginForm.get('password')?.value.toLocaleLowerCase()
       )
       .pipe(first())
       .subscribe((data: any) => {

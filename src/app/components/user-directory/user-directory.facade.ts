@@ -4,7 +4,8 @@ import { UserInfo } from '../models/user-info.model';
 @Injectable()
 export class UserDirectoryFacade {
   filterByInput(value: string, userList: UserInfo[]) {
-    if (!value) {
+    const valueLowerCase = value.toLocaleLowerCase();
+    if (!valueLowerCase) {
       return userList;
     }
 
@@ -13,10 +14,10 @@ export class UserDirectoryFacade {
         user.name
           .toLocaleLowerCase()
           .concat(' ' + user.lastName.toLocaleLowerCase())
-          .includes(value) ||
-        user.job.toLocaleLowerCase().includes(value) ||
-        user.phone.includes(value) ||
-        user.email.includes(value)
+          .includes(valueLowerCase) ||
+        user.job.toLocaleLowerCase().includes(valueLowerCase) ||
+        user.phone.includes(valueLowerCase) ||
+        user.email.includes(valueLowerCase)
       );
     });
     return this.sortListByLastName(filteredUserList);
