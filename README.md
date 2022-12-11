@@ -1,3 +1,8 @@
+# Login
+
+User: user1@endalia.com (user1 ... user10)
+Password: 1234
+
 # EndaliaPrueba
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0.
